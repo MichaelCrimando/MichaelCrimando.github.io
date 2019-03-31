@@ -1,0 +1,142 @@
+
+* {cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat186.cur), auto !important;}
+h1 {
+    color:white;
+}
+h2 {
+    color:white;
+}
+h3 {
+    color:white;
+}
+h4 {
+    color:white;
+}
+h5 {
+    color:white;
+}
+li {
+    color:white;
+}
+p {
+    color:white;
+}
+a:link{
+    font-weight: bold;
+}
+a:hover{
+   cursor: url(http://cur.cursors-4u.net/nature/nat-8/nat733.cur), auto !important;
+}
+a:visited{
+    font-weight:bold;
+}
+a:active {
+    cursor: url(http://cur.cursors-4u.net/food/foo-7/foo650.cur), auto !important;
+}
+img:hover{
+    cursor: url(http://cur.cursors-4u.net/nature/nat-8/nat733.cur), auto !important;
+}
+img:active{
+    cursor: url(http://cur.cursors-4u.net/food/foo-7/foo650.cur), auto !important;
+}
+#underConstruction:hover{
+    cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat186.cur), auto !important;
+}
+#axelTheCat:hover{
+    cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat186.cur), auto !important;
+}
+marquee {
+    color:white;
+    font-weight:bold;
+    background:red;
+    position:fixed;
+    top: 0em;
+}
+
+[class*='parrot'] {
+  position: absolute;
+  height: 35px; 
+  width: 35px;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.parrot-1 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/hd/parrot.gif');
+}
+
+.parrot-2 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/gothparrot.gif');
+}
+
+.parrot-3 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/oldtimeyparrot.gif');
+}
+
+.parrot-4 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/partyparrot.gif');
+}
+
+.parrot-5 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/parrotcop.gif');
+}
+
+.parrot-6 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/fastparrot.gif');
+}
+
+.parrot-7 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/slowparrot.gif');
+}
+
+.parrot-8 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/fiestaparrot.gif');
+}
+
+.parrot-9 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/pizzaparrot.gif');
+}
+
+.parrot-10 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/chillparrot.gif');
+}
+
+.parrot-11 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/blondesassyparrot.gif');
+}
+
+.parrot-12 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/parrotmustache.gif');
+}
+
+.parrot-13 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/hd/christmasparrot.gif');
+}
+
+.parrot-14 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/witnessprotectionparrot.gif');
+}
+
+.parrot-15 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/matrixparrot.gif');
+}
+
+.parrot-16 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/hd/prideparrot.gif');
+}
+
+.parrot-17 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/hd/revolutionparrot.gif');
+}
+
+.parrot-18 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/confusedparrot.gif');
+}
+
+.parrot-19 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/hd/beretparrot.gif');
+}
+
+.parrot-20 {
+  background-image: url('http://cultofthepartyparrot.com/parrots/coffeeparrot.gif');
+}
