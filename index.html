@@ -12,13 +12,16 @@
 <body></body>
 <script src='mouseTrail.js'></script>
 <marquee class="li" direction=”right”>★★★★ Welcome to Mike's World!!!!!!!!! ★★★★ Come back often for updates on Axel and other cool stuff like dabbing!!!!!!!!!★★★★</marquee>
-<body>
+<body onLoad="playHampsterDance()">
+    <audio id="hampsterDance">
+            <source src="/Audio/hampsterDance.mp3" type="audio/mp3">
+    </audio> 
     <div class="mainContent">
         <section class="aboutMike">
             <h1>About Mike</h1>
             <p>
             <img src="/Images/underConstruction.gif" alt="Under construction animated" class="underConstruction"></p>
-            <a href=guestBook.html class="button" alt="Sign Guestbook"><img src="/Images/guestBook.png"></a> 
+            <a href=guestBook.html class="button" alt="Sign Guestbook"><img src="/Images/guestBook.gif"></a> 
         </section>
         
         <section class="aboutAxel">
@@ -59,6 +62,13 @@
         </section>
     </div>
 
+    <script>
+            
+        function playHampsterDance() { 
+            document.getElementById("hampsterDance").play();
+        } 
+    </script>
+    
 </body>
 </html>
 

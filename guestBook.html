@@ -10,6 +10,14 @@
             <link rel="icon" href="/Images/catIcon.png">
         </head>
 <body>
+
+    <audio id="feedbackSent">
+            <source src="/Audio/imrcv.wav" type="audio/wav">
+    </audio>
+    <audio id="radioButtonSound">
+            <source src="/Audio/imsend.wav" type="audio/wav">
+    </audio> 
+
     <div class="guestBook">
         <section class="guestBookForm">
             <script src="saveFeedback.js"></script>
@@ -24,7 +32,7 @@
 
             <h3>Additional comments:</h3>
             <textarea name="textFeedback" rows=6 cols=60> </textarea>
-            <div><button onclick="clearFields()" id="submitButton" disabled=true>Submit</button></div>
+            <div><button onclick="sendFeedback()" id="submitButton" disabled=true>Submit</button></div>
             <p class="thanks" id="thanks"></p>
             <center><a href=index.html class="button"><img src="/Images/homeButton2.GIF" height="100" width = "100"></a></center>
         </section>
