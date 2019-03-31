@@ -10,18 +10,23 @@
             <link rel="icon" href="/Images/catIcon.png">
         </head>
 <body>
-    <script src="saveFeedback.js"></script>
-    <script src="mouseTrail.js"></script>
-    <h3>Sign the guestbook!</h3>
-    <h3>Name: <input name="userName" size="30"></h3>
-    
-    <p>What do you think of my website?</p>
-    <input type="radio" name="radioFeedback" value="itsGreat"> It's Great!
-    <input type="radio" name="radioFeedback" value="itStinks"> It Stinks!
-    <input type="radio" name="radioFeedback" value="needsMorePics"> Needs More Pics of Axel!
+    <div class="guestBook">
+        <section class="guestBookForm">
+            <script src="saveFeedback.js"></script>
+            <script src="mouseTrail.js"></script>
+            <h3>Sign the guestbook!</h3>
+            <h3>Name: <input name="userName" size="30"></h3>
+            
+            <p>What do you think of my website?</p>
+            <input type="radio" name="radioFeedback" value="itsGreat"> It's Great!
+            <input type="radio" name="radioFeedback" value="itStinks"> It Stinks!
+            <input type="radio" name="radioFeedback" value="needsMorePics"> Needs More Pics of Axel!
 
-    <h3>Additoinal comments:</h3>
-    <textarea name="textFeedback" rows=6 cols=60> </textarea>
-    <div><button onclick="clearFields()">Submit</button></div>
+            <h3>Additional comments:</h3>
+            <textarea name="textFeedback" rows=6 cols=60> </textarea>
+            <div><button onclick="clearFields()" id="submitButton">Submit</button></div>
+            <p class="thanks" id="thanks"></p>
+        </section>
+    </div>
 </body>
 </html>
