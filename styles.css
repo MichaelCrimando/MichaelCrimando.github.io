@@ -2,6 +2,9 @@
 * {
     cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat186.cur), auto !important;
 }
+*:active{
+    cursor: url(http://cur.cursors-4u.net/food/foo-7/foo650.cur), auto !important;
+}
 body{
     background-image:url("/Images/starsglow1.gif");
     color:white;
@@ -49,6 +52,9 @@ img:active{
     cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat186.cur), auto !important;
 }
 .axelTheCat:hover{
+    cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat186.cur), auto !important;
+}
+.dancingMinion:hover{
     cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat186.cur), auto !important;
 }
 marquee {
@@ -170,6 +176,16 @@ body, html {
     grid-gap: .7rem;
 }
 
+.guestBook {
+    display: grid;
+    grid-template-columns: 5% 95%;
+    grid-template-rows: auto;
+    height: auto;
+    grid-template-areas:
+    "sideBar guestBookForm";
+    grid-gap: .7rem;
+}
+
 .sideBar {
     grid-area: sidebar;
 }
@@ -188,6 +204,10 @@ body, html {
 
 .extraInfo {
     grid-area: extraInfo;
+}
+
+.guestBookForm {
+    grid-area: guestBookForm;
 }
 
 .button:default {
