@@ -3,7 +3,7 @@
  * Circular mouse trail logic from Tim Tilton on Dynamic Drive http://dynamicdrive.com/dynamicindex13/circletext.htm
  */
 
-const PARROTS = 25,
+const PARROTS = 5,
       SIZE = 30,
       SPACING = 4,
       DIAMETER = 30,
@@ -48,8 +48,8 @@ function makeCircle() {
   current -= ROTATION;
   for (let i = PARROTS - 1; i > -1; --i) {
     parrot = parrots[i];
-    parrot.div.style.top = Math.round(parrot.y + a * Math.sin((current + i) / SPACING) - 15) + 'px';
-    parrot.div.style.left = Math.round(parrot.x + a * Math.cos((current + i) / SPACING)) + 'px';
+    parrot.div.style.top = parrot.y + 'px';
+    parrot.div.style.left = parrot.x + 'px';
   }
 }
 
