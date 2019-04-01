@@ -1,9 +1,9 @@
 
 * {
-    cursor: url("/Cursors/catFace.cur"), pointer !important;
+    cursor: url("/Cursors/catFace.cur"), auto !important;
 }
 *:active{
-    cursor: url(http://cur.cursors-4u.net/food/foo-7/foo650.cur), pointer !important;
+    cursor: url("/Cursors/catPaw.cur"), auto !important;
 }
 body{
     background-image:url("/Images/starsglow1.gif");
