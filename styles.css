@@ -1,9 +1,9 @@
 
 * {
-    cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat186.cur), pointer !important;
+    cursor: url(https://cur.cursors-4u.net/nature/nat-2/nat186.cur), pointer !important;
 }
 *:active{
-    cursor: url(http://cur.cursors-4u.net/food/foo-7/foo650.cur), pointer !important;
+    cursor: url(https://cur.cursors-4u.net/food/foo-7/foo650.cur), pointer !important;
 }
 body{
     background-image:url("/Images/starsglow1.gif");
