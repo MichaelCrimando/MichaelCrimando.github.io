@@ -3,7 +3,7 @@
   cursor: url("/Cursors/catFace.cur"), auto !important;
 }
 *:active{
-  cursor: url("/Cursors/catPaw.cur"), auto !important;
+  cursor: url("/Cursors/tunaCan.cur"), auto !important;
 }
 body{
   background-image:url("/Images/starsglow1.gif");
