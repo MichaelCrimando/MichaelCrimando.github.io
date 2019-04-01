@@ -1,162 +1,162 @@
 
 * {
-    cursor: url("/Cursors/catFace.cur"), auto !important;
+  cursor: url("/Cursors/catFace.cur"), auto !important;
 }
 *:active{
-    cursor: url("/Cursors/catPaw.cur"), auto !important;
+  cursor: url("/Cursors/catPaw.cur"), auto !important;
 }
 body{
-    background-image:url("/Images/starsglow1.gif");
-    color:white;
+  background-image:url("/Images/starsglow1.gif");
+  color:white;
 }
 h1 {
-    color:white;
+  color:white;
 }
 h2 {
-    color:white;
+  color:white;
 }
 h3 {
-    color:white;
+  color:white;
 }
 h4 {
-    color:white;
+  color:white;
 }
 h5 {
-    color:white;
+  color:white;
 }
 li {
-    color:white;
+  color:white;
 }
 p {
-    color:white;
+  color:white;
 }
 a:link{
-    font-weight: bold;
+  font-weight: bold;
 }
 a:hover{
-   cursor: url(http://cur.cursors-4u.net/nature/nat-8/nat733.cur), auto !important;
+ cursor: url("/Cursors/catPaw.cur"), auto !important;
 }
 a:visited{
-    font-weight:bold;
+  font-weight:bold;
 }
 a:active {
-    cursor: url(http://cur.cursors-4u.net/food/foo-7/foo650.cur), auto !important;
+  cursor: url("/Cursors/tunaCan.cur"), auto !important;
 }
 img:hover{
-    cursor: url(http://cur.cursors-4u.net/nature/nat-8/nat733.cur), auto !important;
+  cursor: url("/Cursors/catPaw.cur"), auto !important;
 }
 img:active{
-    cursor: url(http://cur.cursors-4u.net/food/foo-7/foo650.cur), auto !important;
+  cursor: url("/Cursors/tunaCan.cur"), auto !important;
 }
 .underConstruction:hover{
-    cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat186.cur), auto !important;
+  cursor: url("/Cursors/catFace.cur"), auto !important;
 }
 .axelTheCat:hover{
-    cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat186.cur), auto !important;
+  cursor: url("/Cursors/catFace.cur"), auto !important;
 }
 .dancingMinion:hover{
-    cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat186.cur), auto !important;
+  cursor: url("/Cursors/catFace.cur"), auto !important;
 }
 marquee {
-    color:white;
-    font-weight:bold;
-    background:red;
-    position:fixed;
-    top: 0em;
+  color:white;
+  font-weight:bold;
+  background:red;
+  position:fixed;
+  top: 0em;
 }
 input {
-    cursor: url(http://cur.cursors-4u.net/nature/nat-8/nat733.cur), auto !important;
+  cursor: url("/Cursors/catPaw.cur"), auto !important;
 }
 textarea {
-    cursor: url(http://cur.cursors-4u.net/nature/nat-8/nat733.cur), auto !important;
+  cursor: url("/Cursors/catPaw.cur"), auto !important;
 }
 [class*='parrot'] {
-  position: absolute;
-  height: 35px; 
-  width: 35px;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
+position: absolute;
+height: 35px; 
+width: 35px;
+background-repeat: no-repeat;
+background-size: 100% auto;
 }
 
 .parrot-1 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/hd/parrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/hd/parrot.gif');
 }
 
 .parrot-2 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/gothparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/gothparrot.gif');
 }
 
 .parrot-3 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/oldtimeyparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/oldtimeyparrot.gif');
 }
 
 .parrot-4 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/partyparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/partyparrot.gif');
 }
 
 .parrot-5 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/parrotcop.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/parrotcop.gif');
 }
 
 .parrot-6 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/fastparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/fastparrot.gif');
 }
 
 .parrot-7 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/slowparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/slowparrot.gif');
 }
 
 .parrot-8 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/fiestaparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/fiestaparrot.gif');
 }
 
 .parrot-9 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/pizzaparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/pizzaparrot.gif');
 }
 
 .parrot-10 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/chillparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/chillparrot.gif');
 }
 
 .parrot-11 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/blondesassyparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/blondesassyparrot.gif');
 }
 
 .parrot-12 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/parrotmustache.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/parrotmustache.gif');
 }
 
 .parrot-13 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/hd/christmasparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/hd/christmasparrot.gif');
 }
 
 .parrot-14 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/witnessprotectionparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/witnessprotectionparrot.gif');
 }
 
 .parrot-15 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/matrixparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/matrixparrot.gif');
 }
 
 .parrot-16 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/hd/prideparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/hd/prideparrot.gif');
 }
 
 .parrot-17 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/hd/revolutionparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/hd/revolutionparrot.gif');
 }
 
 .parrot-18 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/confusedparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/confusedparrot.gif');
 }
 
 .parrot-19 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/hd/beretparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/hd/beretparrot.gif');
 }
 
 .parrot-20 {
-  background-image: url('http://cultofthepartyparrot.com/parrots/coffeeparrot.gif');
+background-image: url('http://cultofthepartyparrot.com/parrots/coffeeparrot.gif');
 }
 button:hover {
-    cursor: url(http://cur.cursors-4u.net/nature/nat-8/nat733.cur), auto !important;
+  cursor: url("/Cursors/catPaw.cur"), auto !important;
 }
