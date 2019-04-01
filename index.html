@@ -6,21 +6,21 @@
     <title>Mike's World</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link media="screen" href="styles.css" rel="stylesheet">
-    <script src="main.js"></script>
     <link rel="icon" href="/Images/catIcon.png">
+
 </head>
 <body></body>
 <script src='mouseTrail.js'></script>
 <marquee class="li" direction=”right”>★★★★ Welcome to Mike's World!!!!!!!!! ★★★★ Come back often for updates on Axel and other cool stuff like dabbing!!!!!!!!!★★★★</marquee>
-<body onLoad="playHampsterDance()">
-    <audio id="hampsterDance">
-            <source src="/Audio/hampsterDance.mp3" type="audio/mp3">
-    </audio> 
+<body>
+    <audio src="/Audio/hampsterDance.mp3" loop="loop" id="hampsterDance"></audio>
     <div class="mainContent">
         <section class="aboutMike">
             <h1>About Mike</h1>
             <p>
             <img src="/Images/underConstruction.gif" alt="Under construction animated" class="underConstruction"></p>
+
+            <h1>Please sign the guestbook!</h1>
             <a href=guestBook.html class="button" alt="Sign Guestbook"><img src="/Images/guestBook.gif"></a> 
         </section>
         
@@ -61,14 +61,13 @@
             </p></center>
         </section>
     </div>
-
-    <script>
-            
-        function playHampsterDance() { 
-            document.getElementById("hampsterDance").play();
-        } 
-    </script>
     
+
+    <script type="text/javascript">
+        window.onload=function(){
+          document.getElementById("hampsterDance").play();
+        }
+      </script>
 </body>
 </html>
 
