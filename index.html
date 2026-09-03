@@ -1,75 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mike's World</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link media="screen" href="styles.css" rel="stylesheet">
-    <link rel="icon" href="/Images/catIcon.png">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Is the OTA today?</title>
+<style>
+  :root { --cooldown-ms: 64800000; } /* 18 hours */
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #0d0d10;
+    color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    gap: 32px;
+    user-select: none;
+  }
+  h1 { font-size: clamp(28px, 6vw, 56px); margin: 0; font-weight: 800; letter-spacing: -0.5px; }
+  #answer {
+    font-size: clamp(40px, 12vw, 120px);
+    font-weight: 900;
+    min-height: 1.2em;
+    line-height: 1.2;
+    transition: opacity 0.2s ease;
+  }
+  #button {
+    border: none;
+    border-radius: 50%;
+    width: min(60vw, 260px);
+    height: min(60vw, 260px);
+    background: radial-gradient(circle at 35% 30%, #ff5a5a, #c40000 70%, #7a0000);
+    color: #fff;
+    font-size: clamp(20px, 5vw, 34px);
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 0 #5a0000, 0 14px 30px rgba(0,0,0,0.6);
+    transition: transform 0.05s ease, box-shadow 0.05s ease, filter 0.2s ease;
+    text-transform: uppercase;
+  }
+  #button:active:not(:disabled) {
+    transform: translateY(8px);
+    box-shadow: 0 2px 0 #5a0000, 0 6px 16px rgba(0,0,0,0.6);
+  }
+  #button:disabled {
+    filter: grayscale(0.7) brightness(0.6);
+    cursor: not-allowed;
+    box-shadow: 0 10px 0 #333, 0 14px 30px rgba(0,0,0,0.6);
+  }
+  #cooldown { font-size: clamp(14px, 3vw, 18px); color: #9a9a9a; min-height: 1.4em; }
+  .hit { animation: pop 0.35s ease; }
+  @keyframes pop { 0% { transform: scale(0.6); opacity: 0; } 60% { transform: scale(1.12); } 100% { transform: scale(1); opacity: 1; } }
+  footer { position: fixed; bottom: 10px; font-size: 12px; color: #555; }
+</style>
 </head>
-<body></body>
-<script src='mouseTrail.js'></script>
-<marquee class="li" direction=”right”>★★★★ Welcome to Mike's World!!!!!!!!! ★★★★ Come back often for updates on Axel and other cool stuff like dabbing!!!!!!!!!★★★★</marquee>
 <body>
-    <audio src="/Audio/hampsterDance.mp3" loop="loop" id="hampsterDance"></audio>
-    <div class="mainContent">
-        <section class="aboutMike">
-             <iframe src="https://open.spotify.com/embed/playlist/6JzaMFxU6TMnZSlcyohwRQ" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-            <h1>About Mike</h1>
-            <p>
-            <img src="/Images/underConstruction.gif" alt="Under construction animated" class="underConstruction"></p>
+  <h1>Is the OTA today?</h1>
+  <div id="answer"></div>
+  <button id="button">Check</button>
+  <div id="cooldown"></div>
+  <footer>refresh doesn't help. nice try.</footer>
 
-            <h1>Please sign the guestbook!</h1>
-            <a href=guestBook.html class="button" alt="Sign Guestbook"><img src="/Images/guestBook.gif"></a> 
-        </section>
-        
-        <section class="aboutAxel">
-            <p>
-                <h2>Axel the Cat</h2>
-                <img src="/Images/axel.png" alt="Axel the cat" class="axelTheCat">
-                <h2>Reasons why he's the coolest</h2>
-                <ul>
-                    <li>Soft</li>
-                    <li>Handsome</li>
-                    <li>Cool</li>
-                    <li>250 IQ</li>
-                </ul>
-            </p>
-                <h>Top 3 dabs of all time</h5>
-                <ol>
-                    <li><a href="https://www.buzzfeed.com/krystieyandoli/betty-white-just-won-the-super-bowl-with-her-dab">Superbowl Dab</a></li>
-                    <li><a href="https://kotaku.com/fortnite-youtuber-dabs-for-10-hours-makes-2000-1831716006">Fortnite Dab</a></a></li>
-                    <li><a href="https://www.youtube.com/watch?v=_ToknqN_QZw">Squidward Dabs</a></a></li>
-                </ol>
-            </p>
-        </section>
+<script>
+(function () {
+  const COOLDOWN_MS = 18 * 60 * 60 * 1000; // 18 hours
+  const KEY_TIME = "ota_last_press";
+  const KEY_ANSWER = "ota_last_answer";
 
+  // 1 in 100 chance of YES. Everything else is a letdown.
+  const LETDOWNS = [
+    "No.", "Nope.", "Not today.", "Maybe.", "lol no",
+    "Ask again tomorrow.", "Soon\u2122", "Delayed again.",
+    "Almost. (No.)", "Not a chance.", "Still no.", "Definitely maybe not.",
+  ];
 
-        <section class=theLongBoy>
-                <a href="https://www.youtube.com/watch?v=AXQvMDfDg1U" target="_blank"><img src="/Images/theLongBoy.jpg" alt="He has become the long boy, click here to find out how" height="250" width="250"></a>
+  const answerEl = document.getElementById("answer");
+  const btn = document.getElementById("button");
+  const cooldownEl = document.getElementById("cooldown");
+  let timerId = null;
 
-        </section>
+  function roll() {
+    if (Math.floor(Math.random() * 100) === 0) return "YES!!! \uD83C\uDF89";
+    return LETDOWNS[Math.floor(Math.random() * LETDOWNS.length)];
+  }
 
-        <section class="extraInfo">
-            <p>Questions or comments? contact me at <a href="mailto:mcrimando@lycos.com">mcrimando@lycos.net</a></p>
-            <p>This website has been optimized to work with <a href="https://netscape-browser.en.softonic.com/" target="_blank">Netscape 3.0 and above</a> and <a href="https://www.microsoft.com/en-us/download/internet-explorer-11-for-windows-7-details.aspx" target="_blank">Internet Explorer 4.0 and above.</a></p>
-            <a href="https://netscape-browser.en.softonic.com/" target="_blank"><img src="/Images/netscapeNow.jpg" alt="Get Netscape now!" height="31" width="87"></a> <a href="https://www.microsoft.com/en-us/download/internet-explorer-11-for-windows-7-details.aspx" target="_blank"><img src="/Images/getInternetExplorer.png" alt="Get Internet Explorer now!" height="31" width="87"></a> 
-            <center><p>
-                <!-- CuterCounter -->
-<a href="http://www.cutercounter.com/" target="_blank"><img src="http://www.cutercounter.com/hits.php?id=gvmopnoo&nd=6&style=80" border="0" alt="hit counter"></a>
-            </p></center>
-        </section>
-    </div>
-    
+  function fmt(ms) {
+    const s = Math.ceil(ms / 1000);
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    return String(h).padStart(2, "0") + "h " +
+           String(m).padStart(2, "0") + "m " +
+           String(sec).padStart(2, "0") + "s";
+  }
 
-    <script type="text/javascript">
-        window.onload=function(){
-          document.getElementById("hampsterDance").play();
-        }
-      </script>
+  function showAnswer(text, animate) {
+    answerEl.textContent = text;
+    if (animate) {
+      answerEl.classList.remove("hit");
+      void answerEl.offsetWidth; // reflow to restart animation
+      answerEl.classList.add("hit");
+    }
+  }
+
+  function tick() {
+    const last = parseInt(localStorage.getItem(KEY_TIME) || "0", 10);
+    const remaining = last + COOLDOWN_MS - Date.now();
+
+    if (remaining > 0) {
+      btn.disabled = true;
+      btn.textContent = "On cooldown";
+      cooldownEl.textContent = "Come back in " + fmt(remaining);
+    } else {
+      btn.disabled = false;
+      btn.textContent = "Check";
+      cooldownEl.textContent = "";
+      if (timerId) { clearInterval(timerId); timerId = null; }
+    }
+  }
+
+  function press() {
+    const last = parseInt(localStorage.getItem(KEY_TIME) || "0", 10);
+    if (last + COOLDOWN_MS - Date.now() > 0) return; // still cooling down
+
+    const answer = roll();
+    localStorage.setItem(KEY_TIME, String(Date.now()));
+    localStorage.setItem(KEY_ANSWER, answer);
+    showAnswer(answer, true);
+    if (!timerId) timerId = setInterval(tick, 1000);
+    tick();
+  }
+
+  // Restore last answer on load (survives refresh)
+  const saved = localStorage.getItem(KEY_ANSWER);
+  if (saved) showAnswer(saved, false);
+
+  btn.addEventListener("click", press);
+  tick();
+  if (btn.disabled) timerId = setInterval(tick, 1000);
+})();
+</script>
 </body>
 </html>
-
-
