@@ -172,6 +172,35 @@
     })();
   }
 
+  function chime() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      // Ascending "ta-da": C5, E5, G5, then a bright C6 flourish
+      const notes = [
+        { f: 523.25, t: 0.0, d: 0.18 },
+        { f: 659.25, t: 0.12, d: 0.18 },
+        { f: 783.99, t: 0.24, d: 0.22 },
+        { f: 1046.5, t: 0.40, d: 0.5 },
+      ];
+      notes.forEach((n) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "triangle";
+        osc.frequency.value = n.f;
+        const start = ctx.currentTime + n.t;
+        gain.gain.setValueAtTime(0, start);
+        gain.gain.linearRampToValueAtTime(0.25, start + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, start + n.d);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(start);
+        osc.stop(start + n.d + 0.05);
+      });
+      setTimeout(() => ctx.close(), 1500);
+    } catch (e) { /* audio not available, ignore */ }
+  }
+
   function press() {
     const last = parseInt(localStorage.getItem(KEY_TIME) || "0", 10);
     if (last + COOLDOWN_MS - Date.now() > 0) return; // still cooling down
@@ -180,7 +209,7 @@
     localStorage.setItem(KEY_TIME, String(Date.now()));
     localStorage.setItem(KEY_ANSWER, answer);
     showAnswer(answer, true);
-    if (answer.indexOf("YES") === 0) confetti();
+    if (answer.indexOf("YES") === 0) { confetti(); chime(); }
     if (!timerId) timerId = setInterval(tick, 1000);
     tick();
   }
@@ -190,7 +219,7 @@
   if (saved) showAnswer(saved, false);
 
   btn.addEventListener("click", press);
-  if (location.hash === "#test") confetti(); // preview: append #test to the URL
+  if (location.hash === "#test") { confetti(); chime(); } // preview: append #test to the URL
   tick();
   if (btn.disabled) timerId = setInterval(tick, 1000);
 })();
