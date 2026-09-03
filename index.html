@@ -123,6 +123,55 @@
     }
   }
 
+  function confetti() {
+    const canvas = document.createElement("canvas");
+    canvas.style.cssText =
+      "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999;";
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const colors = ["#ff5a5a", "#ffd166", "#06d6a0", "#118ab2", "#f78fb3", "#c77dff"];
+    const pieces = [];
+    for (let i = 0; i < 180; i++) {
+      pieces.push({
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        vx: (Math.random() - 0.5) * 18,
+        vy: (Math.random() - 0.5) * 18 - 6,
+        size: 6 + Math.random() * 8,
+        color: colors[(Math.random() * colors.length) | 0],
+        rot: Math.random() * Math.PI,
+        vr: (Math.random() - 0.5) * 0.3,
+      });
+    }
+
+    const start = Date.now();
+    (function frame() {
+      const elapsed = Date.now() - start;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pieces.forEach((p) => {
+        p.vy += 0.35; // gravity
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.vr;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(0, 1 - elapsed / 3500);
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+        ctx.restore();
+      });
+      if (elapsed < 3500) {
+        requestAnimationFrame(frame);
+      } else {
+        canvas.remove();
+      }
+    })();
+  }
+
   function press() {
     const last = parseInt(localStorage.getItem(KEY_TIME) || "0", 10);
     if (last + COOLDOWN_MS - Date.now() > 0) return; // still cooling down
@@ -131,6 +180,7 @@
     localStorage.setItem(KEY_TIME, String(Date.now()));
     localStorage.setItem(KEY_ANSWER, answer);
     showAnswer(answer, true);
+    if (answer.indexOf("YES") === 0) confetti();
     if (!timerId) timerId = setInterval(tick, 1000);
     tick();
   }
@@ -140,6 +190,7 @@
   if (saved) showAnswer(saved, false);
 
   btn.addEventListener("click", press);
+  if (location.hash === "#test") confetti(); // preview: append #test to the URL
   tick();
   if (btn.disabled) timerId = setInterval(tick, 1000);
 })();
